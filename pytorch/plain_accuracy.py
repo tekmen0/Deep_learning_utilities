@@ -18,6 +18,7 @@ def plain_acc(net, by_class = 0):
         for i in range(10):
             print('Accuracy of %5s : %2d %% num : %6d' % (
                 classes[i], 100 * class_correct[i] / class_total[i], class_total[i]))
+        return class_correct, class_total
         
     else:
         correct = 0
@@ -33,12 +34,7 @@ def plain_acc(net, by_class = 0):
                 correct += (predicted == labels).sum().item()
 
         print('Accuracy of the network on the 10000 test images: %d %%' % (
-            100 * correct / total))
-            
-            
-            
-            
-            
+            100 * correct / total))   
         correct_test = correct
 
         with torch.no_grad():
